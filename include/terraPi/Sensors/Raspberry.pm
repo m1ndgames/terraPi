@@ -1,7 +1,7 @@
 package terraPi::Sensors::Raspberry;
 require Exporter;
 @ISA    = qw(Exporter);
-@EXPORT = qw(BMP085);
+@EXPORT = qw(raspberry);
 use strict;
 use warnings;
 

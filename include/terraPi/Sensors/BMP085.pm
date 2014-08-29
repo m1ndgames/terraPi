@@ -6,8 +6,8 @@ use strict;
 use warnings;
 
 # BMP085 - Humidity / Temperature Sensor
-# &BMP085('temperature')
-# &BMP085('humidity')
+# &BMP085('t')
+# &BMP085('p')
 sub BMP085 {
     my @data =
       `../include/Adafruit-Raspberry-Pi-Python-Code/Adafruit_BMP085/bmp085.py`;
@@ -16,7 +16,7 @@ sub BMP085 {
         if ( ( $_ =~ /Temp: (.+) C/ ) && ( $_[0] eq 't' ) ) {
             return $1;
         }
-        elsif ( ( $_ =~ /Pressure: (.+) hPa/ ) && ( $_[0] eq 'h' ) ) {
+        elsif ( ( $_ =~ /Pressure: (.+) hPa/ ) && ( $_[0] eq 'p' ) ) {
             return $1;
         }
     }
