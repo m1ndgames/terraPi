@@ -17,15 +17,6 @@ body {
         background:  lightgreen;
 }
 
-
-.composite {
-        background:  #3366ff;
-}
-
-.prime {
-        background:  deeppink;
-}
-
-.factor {
-        background:  yellow;
+.top_right {
+	vertical-align:texttop;
 }

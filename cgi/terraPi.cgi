@@ -48,9 +48,16 @@ sub print_html_header {
 
 sub print_html_top {
         print "<body>\n";
-        print $q->center($q->a({href=>"$home"},"Home") . " - " . $q->a({href=>"$home?site=admin"},"Admin") . $q->br . $q->hr);
+	print $q->center($q->a({href=>"$home"},"Home") . " - " . $q->a({href=>"$home?site=admin"},"Admin") . $q->br . $q->hr);
 }
 
+sub language_menu {
+	my $default_lang = &cfghandler('language');
+	print $q->popup_menu(
+        	-name => 'language_menu',
+                -values => ['English','Deutsch'],
+                -default => $default_lang) . $q->submit(-value=>'Submit');
+}
 
 sub print_html_body {
 	if ($site eq 'admin') {
@@ -74,12 +81,19 @@ sub print_html_footer {
 }
 
 sub checklogin {
+	my $auth = new CGI::Session::Auth::DBI({
+		CGI => $q,
+		Session => $session,
+		DSN => $dsn,
+		DBUser => $sqluser,
+		DBPasswd => $sqlpass,
+	});
 	$auth->authenticate();
 	if ($auth->loggedIn) {
-	        print "User logged in...\n";
+	        return 1;
 	}
 	else {
-        	print "Not logged in...\n";
+        	return 0;
 	}
 }
 
@@ -88,7 +102,12 @@ sub checklogin {
 
 &print_html_top();
 
-&checklogin();
+if (&checklogin()) {
+	print("User is logged in");
+}
+else {
+	print("User is not logged in");
+}
 
 &print_html_body();
 
