@@ -4,19 +4,22 @@ require Exporter;
 @EXPORT = qw(sqlhandler);
 use strict;
 use warnings;
+use terraPi::Config;
 use DBI;
 use Config::Simple;
 
 # Initializing DBI Module
+my $sqluser = &cfghandler('sqluser');
+my $sqlpass = &cfghandler('sqlpass');
+my $sqlhost = &cfghandler('sqlhost');
+my $sqldb = &cfghandler('sqldb');
+my $sqlport = &cfghandler('sqlport');
+my $dsn = "dbi:mysql:$sqldb:$sqlhost:$sqlport";
+my %dbattr = ( PrintError=>0, RaiseError=>1);
+my $dbh  = DBI->connect($dsn,$sqluser,$sqlpass, \%dbattr);
+
 sub sqlhandler {
-	my $parameter = $_[0];
-	
-	my $dbh = DBI->connect("DBI:mysql:database=mydb;host=" . &cfghandler('sqlhost') . ";port=" . &cfghandler('sqlport') . "," . &cfghandler('sqluser'), &cfghandler('sqlpass')) or die $DBI::errstr;
-	if ($parameter eq 'read') {
-		
-	} elsif ($parameter eq 'write') {
-		
-	}
+	return 1;
 }
 
 1;

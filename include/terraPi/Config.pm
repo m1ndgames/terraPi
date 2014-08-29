@@ -1,7 +1,7 @@
 package terraPi::Config;
 require Exporter;
 @ISA = qw(Exporter);
-@EXPORT = qw(cfghandler sqlhandler);
+@EXPORT = qw(cfghandler);
 use strict;
 use warnings;
 use Config::Simple;
