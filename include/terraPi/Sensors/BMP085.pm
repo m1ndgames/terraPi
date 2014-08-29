@@ -1,6 +1,6 @@
 package terraPi::Sensors::BMP085;
 require Exporter;
-@ISA = qw(Exporter);
+@ISA    = qw(Exporter);
 @EXPORT = qw(BMP085);
 use strict;
 use warnings;
