@@ -1,0 +1,31 @@
+body {
+        background:  #ffcfff;
+        font-family: arial;
+}
+
+.data {
+        border:      1px solid black;
+        text-align:  center;
+        cursor:      pointer;
+        min-width:   32px;
+        min-height:  32px;
+        width:       32px;
+        height:      32px;
+}
+
+.normal {
+        background:  lightgreen;
+}
+
+
+.composite {
+        background:  #3366ff;
+}
+
+.prime {
+        background:  deeppink;
+}
+
+.factor {
+        background:  yellow;
+}

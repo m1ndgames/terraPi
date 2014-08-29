@@ -1,0 +1,27 @@
+[english]
+line001=Raspberry Core Temperature
+line002=Raspberry Voltage
+line003=Raspberry Clock
+line004=BMP085 - Temperature Sensor
+line005=BMP085 - Humidity Sensor
+line006=f
+line007=g
+line008=h
+line009=i
+line010=j
+line011=k
+line012=l
+
+[german]
+line001=Raspberry Kern Temperatur
+line002=Raspberry Spannung
+line003=Raspberry Takt
+line004=BMP085 - Temperatur-Sensor
+line005=BMP085 - Luftfeuchtigkeits-Sensor
+line006=ff
+line007=gg
+line008=hh
+line009=ii
+line010=jj
+line011=kk
+line012=ll
