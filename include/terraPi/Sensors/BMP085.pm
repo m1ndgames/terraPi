@@ -10,7 +10,7 @@ use warnings;
 # &BMP085('p')
 sub BMP085 {
     my @data =
-      `../include/Adafruit-Raspberry-Pi-Python-Code/Adafruit_BMP085/bmp085.py`;
+      `/home/pi/scripts/terraPi/include/Adafruit-Raspberry-Pi-Python-Code/Adafruit_BMP085/bmp085.py`;
     my ( $temperature, $humidity );
     foreach (@data) {
         if ( ( $_ =~ /Temp: (.+) C/ ) && ( $_[0] eq 't' ) ) {

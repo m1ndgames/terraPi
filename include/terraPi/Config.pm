@@ -9,7 +9,7 @@ our $cfg;
 
 # Initializing Config::Simple Module
 $cfg = new Config::Simple( syntax => 'ini' );
-$cfg->read("../conf.d/terraPi.conf");
+$cfg->read("/home/pi/scripts/terraPi/conf.d/terraPi.conf");
 
 sub cfghandler {
     return $cfg->param("config.$_[0]");

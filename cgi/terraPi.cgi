@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use lib "../include";
+use lib "/home/pi/scripts/terraPi/include";
 use terraPi::Config;
 use terraPi::Config::User;
 use terraPi::Mysql;
@@ -26,21 +26,21 @@ print $q->header();
 
 if ( $site eq 'index' ) {
     $template =
-      HTML::Template->new( filename => '../data/web_templates/index.tmpl' );
+      HTML::Template->new( filename => '/home/pi/scripts/terraPi/data/web_templates/index.tmpl' );
 }
 elsif ( $site eq 'admin' ) {
     if ( &checklogin($q) == 1 ) {
         $template =
-          HTML::Template->new( filename => '../data/web_templates/admin.tmpl' );
+          HTML::Template->new( filename => '/home/pi/scripts/terraPi/data/web_templates/admin.tmpl' );
     }
     else {
         $template =
-          HTML::Template->new( filename => '../data/web_templates/login.tmpl' );
+          HTML::Template->new( filename => '/home/pi/scripts/terraPi/data/web_templates/login.tmpl' );
     }
 }
 elsif ( ( $site eq 'sensors') && ($showsensor eq 'overview') ) {
     $template =
-      HTML::Template->new( filename => '../data/web_templates/sensoroverview.tmpl',
+      HTML::Template->new( filename => '/home/pi/scripts/terraPi/data/web_templates/sensoroverview.tmpl',
         die_on_bad_params => 0 );
     $template->param( sensorlist => 1 );
 }
@@ -49,7 +49,7 @@ elsif ( ( $site eq 'sensors' ) && ( $showsensor eq 'BMP085' ) ) {
     my $t        = &BMP085('t');
     my $p        = &BMP085('p');
     $template =
-      HTML::Template->new( filename => '../data/web_templates/BMP085.tmpl' );
+      HTML::Template->new( filename => '/home/pi/scripts/terraPi/data/web_templates/BMP085.tmpl' );
     $template->param( SENSORID    => $sensorid );
     $template->param( BMP085TEMP  => $t );
     $template->param( BMP085PRESS => $p );
@@ -61,7 +61,7 @@ elsif ( ( $site eq 'sensors' ) && ( $showsensor eq 'Raspberry' ) ) {
     my $v        = &raspberry('volts');
     my $c        = &raspberry('clock');
     $template =
-      HTML::Template->new( filename => '../data/web_templates/Raspberry.tmpl' );
+      HTML::Template->new( filename => '/home/pi/scripts/terraPi/data/web_templates/Raspberry.tmpl' );
     $template->param( SENSORID   => $sensorid );
     $template->param( RASPITEMP  => $t );
     $template->param( RASPIVOLTS => $v );
@@ -70,7 +70,7 @@ elsif ( ( $site eq 'sensors' ) && ( $showsensor eq 'Raspberry' ) ) {
 }
 else {
     $template =
-      HTML::Template->new( filename => '../data/web_templates/index.tmpl' );
+      HTML::Template->new( filename => '/home/pi/scripts/terraPi/data/web_templates/index.tmpl' );
 }
 
 print $template->output();

@@ -5,6 +5,7 @@ require Exporter;
 use strict;
 use warnings;
 use Date::Manip;
+use Date::Parse;
 use terraPi::Config;
 
 sub timehandler {
@@ -37,6 +38,9 @@ sub timehandler {
         my $date = $_[1];
         my $delta = $_[2];
         return DateCalc($date,$delta);
+    } elsif ($param eq 'unixtime') {
+	my $input = $_[1];
+	return str2time($input);
     }
 }
 

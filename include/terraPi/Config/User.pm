@@ -21,7 +21,7 @@ my $dbh     = DBI->connect( $dsn, $sqluser, $sqlpass, \%dbattr );
 sub checklogin {
     my $cgi = $_[0];
     my $session =
-      new CGI::Session( undef, $cgi, { Directory => '../data/sessions' } );
+      new CGI::Session( undef, $cgi, { Directory => '/home/pi/scripts/terraPi/data/sessions' } );
     $session->expire( 'is_logged_in', '+10m' );
     $session->expire('+1h');
     my $auth = new CGI::Session::Auth::DBI(
